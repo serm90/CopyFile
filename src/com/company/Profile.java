@@ -6,7 +6,7 @@ public class Profile {
 
     // первоначальные проверки;
 
-    public static void checkFile(File sourceFile){
+    public void checkFile(File sourceFile){
         System.out.println("Имя файла, что копируем: " + sourceFile.getName() + ";");
         System.out.println("Расположение файла: " + sourceFile.getParent() + ";");
 
@@ -24,12 +24,12 @@ public class Profile {
         if (sourceFile.canWrite())
             System.out.println(sourceFile.getName() + ": доступен для записи;");
         else
-            System.out.println(sourceFile.getName() + ": доступен для записи;");
+            System.out.println(sourceFile.getName() + ": не доступен для записи;");
     }
 
     // построчная проверка исходного файла с копией;
 
-    public static void comparisonFile(File source, File newFile){
+    public void comparisonFile(File source, File newFile){
         try {
 
             FileReader frSource = new FileReader(source);
@@ -43,7 +43,7 @@ public class Profile {
             String lineNew = "";
             String lineSource = "";
 
-            while (lineSource != null) {
+            while (true) {
 
                 // считываем остальные строки в цикле
                 lineSource = readerSource.readLine();
@@ -52,9 +52,9 @@ public class Profile {
                 if (lineSource == null && lineNew == null) {
                     break;
                 }else {
-                    if (lineSource.equals(lineNew)) {
-                    } else {
-                        System.out.println("Строка не совпадает: " + lineNew);
+                    if (!lineSource.equals(lineNew)) {
+                        System.out.println("Строки не совпадают\n"
+                                + "Expected: " + lineSource + " Actual: " + lineNew);
                     }
                 }
             }
