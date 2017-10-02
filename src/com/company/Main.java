@@ -1,18 +1,12 @@
 package com.company;
 
-import javafx.scene.shape.Path;
-
 import java.io.*;
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Arrays;
-import java.util.List;
 
-import static java.nio.file.Paths.*;
+import java.nio.file.StandardCopyOption;
+
 
 public class Main {
 
